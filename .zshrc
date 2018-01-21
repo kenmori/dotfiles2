@@ -3,14 +3,19 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/moritakenji/.oh-my-zsh
-
+echo "here is /Uers/moritakenji/dotfiles2!!"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cypher"
 
 
-alias vz='vim ~/.zshrc'
+alias vdot='vim ~/dotfiles2'
+alias cgit='cd /Git'
+
+alias la='la'
+
+alias vgit='vim /Git'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
