@@ -1,7 +1,6 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-set number
 syntax on
 
 
@@ -11,7 +10,6 @@ set title
 set fileencoding=utf-8
 set encoding=utf-8
 set incsearch
-set ruler
 set ambiwidth=double
 set tabstop=2
 set shiftwidth=2
@@ -27,10 +25,8 @@ set autoread "外部でファイルに変更が競れた場合は読み直す"
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set nrformats-=octal
 set hidden
-set history=50
 set infercase
 set virtualedit=block
-set whichwrap=b,s,[,],<,>
 set backspace=indent,eol,start
 set wildmenu
 set noerrorbells
@@ -100,7 +96,41 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/es.next.syntax.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'surround.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'Yggdroot/indentLine'
 
+
+"---ステータスライン
+plugin 'jistr/vim-nerdtree-tabs'
+set showmode "現在のモードを表示"
+set ruler "ステータスラインの右側にカーソルの現在位置を表示"
+set showcmd "打ったコマンドをステータスラインの下に表示"
+
+"---末尾の全角と半角の空白文字を赤くハイライト
+Plugin 'bronson/vim-trailing-whitespace'
+"FixWhitespace
+
+
+"--カーソル
+set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
+set number " 行番号を表示
+set cursorline " カーソルラインをハイライト
+
+" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
+nnoremap j gj
+nnoremap k gk
+nnoremap <down> gj
+nnoremap <up> gk
+
+"カッコタグジャンプ
+set showmatch " 括弧の対応関係を一瞬表示する
+source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
+
+"コマンド補完
+set wildmenu
+set history=5000 "保存するコマンド数"
 
 call vundle#end()
 filetype plugin indent on
@@ -142,7 +172,7 @@ nnoremap <L:ader>g :<C-u>OpenBrownerSearch<Space><C-r><C-w><Enter>
 "------------
 "colorscheme
 "------------
-colorscheme molokai
+colorscheme jellybeans
 highlight Normal ctermbg=none
 set background=dark
 
