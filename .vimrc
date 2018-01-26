@@ -1,12 +1,18 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-syntax off
+syntax on
 
 
 
 set t_Co=256
-set clipboard+=unnamed
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 set title
 set fileencoding=utf-8
 set encoding=utf-8
@@ -29,6 +35,8 @@ set hidden
 set infercase
 set virtualedit=block
 set backspace=indent,eol,start
+set wildmenu
+set noerrorbells
 set novisualbell
 set ignorecase
 set smartcase
@@ -36,7 +44,7 @@ set hlsearch
 set wrapscan
 set gdefault
 set nocompatible
-"set guicursor=a:blinkon0
+set guicursor=a:blinkon0
 
 
 "ctrlp.vim setting
@@ -103,10 +111,44 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'glidenote/memolist.vim'
+
+"--ctrlp setting"
+" キャッシュディレクトリ
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+" キャッシュを終了時に削除しない
+let g:ctrlp_clear_cache_on_exit = 0
+" 遅延再描画
+let g:ctrlp_lazy_update = 1
+" ルートパスと認識させるためのファイル
+let g:ctrlp_root_markers = ['Gemfile', 'pom.xml', 'build.xml']
+" CtrlPのウィンドウ最大高さ
+let g:ctrlp_max_height = 20
+" 無視するディレクトリ
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 
-"--NERDTREE
-nnoremap <silent><C-n> :NERDTreeToggle<CR>
+"window移動
+"nnoremap ww <C-w>w
+"nnoremap wj <C-w>j
+"nnoremap wk <C-w>k
+"nnoremap wl <C-w>l
+"nnoremap wh <C-w>h
+
+
+"memolist
+let g:memolist_path = 'path/to/dir'
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
+
+"--nerdtree
+nnoremap <silent><c-n> :nerdtreetoggle<cr>
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -136,6 +178,7 @@ let g:NERDTreeShowBookmarks=1
 
 
 "---ステータスライン
+plugin 'jistr/vim-nerdtree-tabs'
 set showmode "現在のモードを表示"
 set ruler "ステータスラインの右側にカーソルの現在位置を表示"
 set showcmd "打ったコマンドをステータスラインの下に表示"
@@ -147,8 +190,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 
 "--カーソル
 set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
-
-"set cursorline " カーソルラインをハイライト 重くなる原因のようなので一旦
+set number
+set cursorline " カーソルラインをハイライト 重くなる原因のようなので一旦
 
 " 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
 nnoremap j gj
