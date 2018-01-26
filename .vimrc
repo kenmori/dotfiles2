@@ -1,11 +1,12 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-syntax on
+syntax off
 
 
 
 set t_Co=256
+set clipboard+=unnamed
 set title
 set fileencoding=utf-8
 set encoding=utf-8
@@ -28,8 +29,6 @@ set hidden
 set infercase
 set virtualedit=block
 set backspace=indent,eol,start
-set wildmenu
-set noerrorbells
 set novisualbell
 set ignorecase
 set smartcase
@@ -37,13 +36,16 @@ set hlsearch
 set wrapscan
 set gdefault
 set nocompatible
-set guicursor=a:blinkon0
+"set guicursor=a:blinkon0
 
 
 "ctrlp.vim setting
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+"fullpathをputする
+let @" = expand("%:p")
 
 let g:ctrlp_working_path_mode = 'ra'
 " キャッシュディレクトリ
@@ -100,10 +102,40 @@ Plugin 'surround.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdtree'
+
+
+"--NERDTREE
+nnoremap <silent><C-n> :NERDTreeToggle<CR>
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+" ファイル名を指定されてvimが立ち上がった場合nerdTreeは開かない
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+call NERDTreeHighlightFile('py',     'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('md',     'blue',    'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml',    'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('config', 'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('conf',   'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('json',   'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('html',   'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('styl',   'cyan',    'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('css',    'cyan',    'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('rb',     'Red',     'none', 'red',     '#151515')
+call NERDTreeHighlightFile('js',     'Red',     'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
+
+"open bookmark when first run nerdTree
+let g:NERDTreeShowBookmarks=1
+
 
 
 "---ステータスライン
-plugin 'jistr/vim-nerdtree-tabs'
 set showmode "現在のモードを表示"
 set ruler "ステータスラインの右側にカーソルの現在位置を表示"
 set showcmd "打ったコマンドをステータスラインの下に表示"
@@ -115,8 +147,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 
 "--カーソル
 set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
-set number " 行番号を表示
-set cursorline " カーソルラインをハイライト
+
+"set cursorline " カーソルラインをハイライト 重くなる原因のようなので一旦
 
 " 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
 nnoremap j gj
