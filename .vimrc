@@ -140,6 +140,14 @@ let g:ctrlp_custom_ignore = {
 "nnoremap wl <C-w>l
 "nnoremap wh <C-w>h
 
+nnoremap <silent>bp :bprevious<CR>
+nnoremap <silent>bn :bnext<CR>
+nnoremap <silent>bb :b#<CR>
+nnoremap <silent>bf :bf<CR>
+nnoremap <silent>bl :bl<CR>
+nnoremap <silent>bm :bm<CR>
+nnoremap <silent>bd :bdelete<CR>
+
 
 "memolist
 let g:memolist_path = 'path/to/dir'
