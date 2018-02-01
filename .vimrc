@@ -142,9 +142,8 @@ let g:ctrlp_custom_ignore = {
 
 nnoremap <silent>bp :bprevious<CR>
 nnoremap <silent>bn :bnext<CR>
-nnoremap <silent>bb :b#<CR>
 nnoremap <silent>bf :bf<CR>
-nnoremap <silent>bl :bl<CR>
+nnoremap <silent>bl :b#<CR>
 nnoremap <silent>bm :bm<CR>
 nnoremap <silent>bd :bdelete<CR>
 
@@ -156,7 +155,8 @@ nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
 "--nerdtree
-nnoremap <silent><c-n> :nerdtreetoggle<cr>
+nnoremap <silent><c-n> :NERDTreeToggle<CR>
+
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -186,7 +186,7 @@ let g:NERDTreeShowBookmarks=1
 
 
 "---ステータスライン
-plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 set showmode "現在のモードを表示"
 set ruler "ステータスラインの右側にカーソルの現在位置を表示"
 set showcmd "打ったコマンドをステータスラインの下に表示"
@@ -270,3 +270,20 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
+
+call plug#begin('~/.vim/plugged')
+"prettier
+Plug 'sbdchd/neoformat'
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
+                                                            \--stdin\
+                                                            \--print-width\ 80\
+                                                            \--single-quote\
+                                                            \--trailing-comma\ es5
+    autocmd BufWritePre *.js,*.jsx Neoformat
+augroup END
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+
+call plug#end()
