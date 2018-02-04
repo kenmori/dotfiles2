@@ -3,6 +3,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 syntax on
 
+set swapfile
+"$HOME/.vimrc
+set directory=$HOME/.vim/swapfiles
 
 
 set t_Co=256
@@ -113,6 +116,8 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'glidenote/memolist.vim'
+
+Plugin 'nelstrom/vim-visual-star-search'
 
 "--ctrlp setting"
 " キャッシュディレクトリ
@@ -271,19 +276,3 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
-call plug#begin('~/.vim/plugged')
-"prettier
-Plug 'sbdchd/neoformat'
-augroup NeoformatAutoFormat
-    autocmd!
-    autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
-                                                            \--stdin\
-                                                            \--print-width\ 80\
-                                                            \--single-quote\
-                                                            \--trailing-comma\ es5
-    autocmd BufWritePre *.js,*.jsx Neoformat
-augroup END
-" Use formatprg when available
-let g:neoformat_try_formatprg = 1
-
-call plug#end()
