@@ -1,25 +1,27 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-
- alias python='/usr/local/bin/python3.6'
+#lmではこれはコメントアウト
+#alias python='/usr/local/bin/python3.6'
 
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/moritakenji/.oh-my-zsh
-echo "here is /Uers/moritakenji/dotfiles2!!"
+export ZSH=/Users/morita/.oh-my-zsh
+echo "here is /Uers/morita/dotfiles2!!"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cypher"
 export TERM=xterm-256color
 
-alias vdot='vim ~/dotfiles2'
-alias cgit='cd /Git'
+alias dot='vim ~/dotfiles2'
+alias web='cd ~/recme_ainavi_web_client'
+alias ap='cd ~/aimeets_api'
+alias home='cd ~/'
 
 alias la='la'
 
-alias vgit='vim /Git'
+alias vgit='vim /'
 
 
 
@@ -102,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="/Users/moritakenji/.nvm"
+export NVM_DIR="/Users/morita/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 

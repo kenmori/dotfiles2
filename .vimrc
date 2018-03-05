@@ -1,7 +1,11 @@
 set nocompatible
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-syntax on
+
+if has ("syntax")
+  syntax on
+endif
 
 set swapfile
 "$HOME/.vimrc
@@ -47,7 +51,7 @@ set hlsearch
 set wrapscan
 set gdefault
 set nocompatible
-set guicursor=a:blinkon0
+"set guicursor=a:blinkon0
 
 
 "ctrlp.vim setting
@@ -75,6 +79,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|png|jpg|ai|swp|swo|DS_Store|ico)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 
@@ -116,9 +121,9 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'glidenote/memolist.vim'
-
 Plugin 'nelstrom/vim-visual-star-search'
-
+Plugin 'prettier/vim-prettier'
+Plugin 'flowtype/vim-flow'
 "--ctrlp setting"
 " キャッシュディレクトリ
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
@@ -137,6 +142,10 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+"bufferをF2とF3で移動する
+map <silent>    <F2>    :bp<cr>
+map <silent>    <F3>    :bn<cr>
+nmap bb :ls<CR>:buf
 
 "window移動
 "nnoremap ww <C-w>w
@@ -204,7 +213,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 "--カーソル
 set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set number
-set cursorline " カーソルラインをハイライト 重くなる原因のようなので一旦
+"set cursorline " カーソルラインをハイライト 重くなる原因のようなので一旦
 
 " 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
 nnoremap j gj
