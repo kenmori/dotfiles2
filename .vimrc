@@ -74,6 +74,8 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+"typescrpt-vim"
+let g:typescript_indent_disable = 1
 
 "grep時の:cnextのshortcut
 nnoremap [q :cprevious<CR>   "前へ
