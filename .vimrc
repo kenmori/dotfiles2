@@ -124,6 +124,12 @@ Plugin 'glidenote/memolist.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'prettier/vim-prettier'
 Plugin 'flowtype/vim-flow'
+
+
+"flow color
+let g:javascript_plugin_flow = 1
+
+
 "--ctrlp setting"
 " キャッシュディレクトリ
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
