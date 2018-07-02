@@ -18,6 +18,8 @@ alias vdot='vim ~/dotfiles2'
 alias cgit='cd /Git'
 
 alias la='la'
+alias na='cd /Git/Routine/hybrid-app-native'
+alias we='cd /Git/Routine/hybrid-app'
 
 alias vgit='vim /Git'
 

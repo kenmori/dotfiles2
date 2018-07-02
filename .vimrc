@@ -115,6 +115,12 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'glidenote/memolist.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'kannokanno/previm'
+Plugin 'tyru/open-browser.vim'
+
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Firefox'
 
 "--ctrlp setting"
 " キャッシュディレクトリ
@@ -287,5 +293,11 @@ augroup NeoformatAutoFormat
 augroup END
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
+
+
+"---vim-flow
+let g:syntastic_javascript_checkers = [‘flow’]
+let g:syntastic_javascript_flow_exe = ‘flow’
+
 
 call plug#end()
