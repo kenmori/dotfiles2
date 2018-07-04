@@ -1,12 +1,18 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-syntax off
+syntax on
 
 
 
 set t_Co=256
-set clipboard+=unnamed
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 set title
 set fileencoding=utf-8
 set encoding=utf-8
@@ -29,6 +35,8 @@ set hidden
 set infercase
 set virtualedit=block
 set backspace=indent,eol,start
+set wildmenu
+set noerrorbells
 set novisualbell
 set ignorecase
 set smartcase
@@ -36,7 +44,7 @@ set hlsearch
 set wrapscan
 set gdefault
 set nocompatible
-"set guicursor=a:blinkon0
+set guicursor=a:blinkon0
 
 
 "ctrlp.vim setting
@@ -66,6 +74,8 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+"typescrpt-vim"
+let g:typescript_indent_disable = 1
 
 "grep時の:cnextのshortcut
 nnoremap [q :cprevious<CR>   "前へ
@@ -103,10 +113,58 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'glidenote/memolist.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'kannokanno/previm'
+Plugin 'tyru/open-browser.vim'
+
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Firefox'
+
+"--ctrlp setting"
+" キャッシュディレクトリ
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+" キャッシュを終了時に削除しない
+let g:ctrlp_clear_cache_on_exit = 0
+" 遅延再描画
+let g:ctrlp_lazy_update = 1
+" ルートパスと認識させるためのファイル
+let g:ctrlp_root_markers = ['Gemfile', 'pom.xml', 'build.xml']
+" CtrlPのウィンドウ最大高さ
+let g:ctrlp_max_height = 20
+" 無視するディレクトリ
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 
-"--NERDTREE
-nnoremap <silent><C-n> :NERDTreeToggle<CR>
+"window移動
+"nnoremap ww <C-w>w
+"nnoremap wj <C-w>j
+"nnoremap wk <C-w>k
+"nnoremap wl <C-w>l
+"nnoremap wh <C-w>h
+
+nnoremap <silent>bp :bprevious<CR>
+nnoremap <silent>bn :bnext<CR>
+nnoremap <silent>bf :bf<CR>
+nnoremap <silent>bl :b#<CR>
+nnoremap <silent>bm :bm<CR>
+nnoremap <silent>bd :bdelete<CR>
+
+
+"memolist
+let g:memolist_path = 'path/to/dir'
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
+
+"--nerdtree
+nnoremap <silent><c-n> :NERDTreeToggle<CR>
+
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -136,6 +194,7 @@ let g:NERDTreeShowBookmarks=1
 
 
 "---ステータスライン
+Plugin 'jistr/vim-nerdtree-tabs'
 set showmode "現在のモードを表示"
 set ruler "ステータスラインの右側にカーソルの現在位置を表示"
 set showcmd "打ったコマンドをステータスラインの下に表示"
@@ -147,8 +206,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 
 "--カーソル
 set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
-
-"set cursorline " カーソルラインをハイライト 重くなる原因のようなので一旦
+set number
+set cursorline " カーソルラインをハイライト 重くなる原因のようなので一旦
 
 " 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
 nnoremap j gj
@@ -219,3 +278,26 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
+
+call plug#begin('~/.vim/plugged')
+"prettier
+Plug 'sbdchd/neoformat'
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
+                                                            \--stdin\
+                                                            \--print-width\ 80\
+                                                            \--single-quote\
+                                                            \--trailing-comma\ es5
+    autocmd BufWritePre *.js,*.jsx Neoformat
+augroup END
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+
+
+"---vim-flow
+let g:syntastic_javascript_checkers = [‘flow’]
+let g:syntastic_javascript_flow_exe = ‘flow’
+
+
+call plug#end()
