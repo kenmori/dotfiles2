@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 
- alias python='/usr/local/bin/python3.6'
 
+export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/moritakenji/.oh-my-zsh
@@ -23,11 +23,9 @@ alias we='cd /Git/Routine/hybrid-app'
 
 alias vgit='vim /Git'
 
-
-
-
-
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -197,3 +195,6 @@ function clippaste() {
     fi
   fi
 }
+export PATH="$PATH:/Applications/android-sdk/sdk/platform-tools"
+export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
+export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"

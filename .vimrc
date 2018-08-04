@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -13,6 +14,7 @@ if has("clipboard")
     set clipboard+=unnamedplus
   endif
 endif
+
 set title
 set fileencoding=utf-8
 set encoding=utf-8
