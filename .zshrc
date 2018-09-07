@@ -15,14 +15,21 @@ ZSH_THEME="cypher"
 export TERM=xterm-256color
 
 alias dot='vim ~/dotfiles2'
-alias web='cd ~/recme_ainavi_web_client'
+alias web='cd ~/recme_ainavi_web_client && nvm use --lts && vim'
+alias we='cd ~/recme_ainavi_web_client && nvm use --lts'
 alias ap='cd ~/aimeets_api'
-alias home='cd ~/'
-
+alias vap='vim ~/aimeets_api'
+alias biz='cd ~/recme_ainavi_biz_client'
+alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
+alias ys='yarn start'
+alias da='docker-compose up -a'
+alias dd='docker-compose up -d'
+alias db='docker-compose up --build -d'
+alias up=".venv/bin/ansible-playbook -v --ssh-common-args='-F /home/aimeets/.ssh/config' -i inventories/production/hosts playboo
+ks/deploy_aimeets_web_client.yaml --vault-password-file='.prd.vault.password'"
+alias h='cd ~/'
 alias la='la'
-
 alias vgit='vim /'
-
 
 
 
@@ -106,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="/Users/morita/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 
 
 

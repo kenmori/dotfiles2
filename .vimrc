@@ -77,7 +77,7 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|dist|build)$',
   \ 'file': '\v\.(exe|so|dll|png|jpg|ai|swp|swo|DS_Store|ico)$',
-  \ 'link': 'some_bad_symbolic_links',
+  \ 'link': 'some_bad_symbolic_links'
   \ }
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -124,6 +124,9 @@ Plugin 'glidenote/memolist.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'prettier/vim-prettier'
 Plugin 'flowtype/vim-flow'
+Plugin 'peitalin/vim-jsx-typescript'
+Bundle 'scrooloose/syntastic'
+
 
 
 "flow color
@@ -290,4 +293,17 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
+"set filetypes as typescript.jsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx,*.ts set filetype=typescript
+" light blues
+hi xmlTagName guifg=#59ACE5
+hi xmlTag guifg=#59ACE5
+
+
+let g:syntastic_mode_map = {
+  \ 'mode': 'active',
+  \ 'active_filetypes': ['javascript', "typescript"],
+  \ 'passive_filetypes': ['html']
+  \}
+let g:syntastic_auto_loc_list = 1
 
