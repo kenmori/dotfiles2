@@ -4,6 +4,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 syntax on
 
+set swapfile
+"$HOME/.vimrc
+set directory=$HOME/.vim/swapfiles
 
 
 set t_Co=256
@@ -123,6 +126,8 @@ Plugin 'tyru/open-browser.vim'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Firefox'
+
+Plugin 'nelstrom/vim-visual-star-search'
 
 "--ctrlp setting"
 " キャッシュディレクトリ
@@ -281,6 +286,7 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
+
 call plug#begin('~/.vim/plugged')
 "prettier
 Plug 'sbdchd/neoformat'
@@ -303,3 +309,4 @@ let g:syntastic_javascript_flow_exe = ‘flow’
 
 
 call plug#end()
+
