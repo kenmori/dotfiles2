@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -16,6 +17,7 @@ if has("clipboard")
     set clipboard+=unnamedplus
   endif
 endif
+
 set title
 set fileencoding=utf-8
 set encoding=utf-8
@@ -118,6 +120,12 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'glidenote/memolist.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'kannokanno/previm'
+Plugin 'tyru/open-browser.vim'
+
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Firefox'
 
 Plugin 'nelstrom/vim-visual-star-search'
 
@@ -277,4 +285,28 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
+
+
+call plug#begin('~/.vim/plugged')
+"prettier
+Plug 'sbdchd/neoformat'
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
+                                                            \--stdin\
+                                                            \--print-width\ 80\
+                                                            \--single-quote\
+                                                            \--trailing-comma\ es5
+    autocmd BufWritePre *.js,*.jsx Neoformat
+augroup END
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+
+
+"---vim-flow
+let g:syntastic_javascript_checkers = [‘flow’]
+let g:syntastic_javascript_flow_exe = ‘flow’
+
+
+call plug#end()
 

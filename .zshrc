@@ -2,9 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 
- alias python='/usr/local/bin/python3.6'
+export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+export PATH=/usr/local/bin:/usr/local/sbin:/sbin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/moritakenji/.oh-my-zsh
 echo "here is /Uers/moritakenji/dotfiles2!!"
@@ -18,14 +21,18 @@ alias vdot='vim ~/dotfiles2'
 alias cgit='cd /Git'
 
 alias la='la'
+alias na='cd /Git/Routine/hybrid-app-native'
+alias we='cd /Git/Routine/hybrid-app'
 
 alias vgit='vim /Git'
 
+# pyenv
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
-
-
-
-
+# anaconda
+export PATH="$PYENV_ROOT/versions/anaconda3-5.2.0/bin/:$PATH"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -195,3 +202,8 @@ function clippaste() {
     fi
   fi
 }
+export PATH="$PATH:/Applications/android-sdk/sdk/platform-tools"
+export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
+export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
+export PATH=~/Library/Android/sdk/tools:$PATH
+export PATH=~/Library/Android/sdk/tools:$PATH
