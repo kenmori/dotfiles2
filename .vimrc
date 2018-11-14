@@ -8,6 +8,8 @@ set swapfile
 "$HOME/.vimrc
 set directory=$HOME/.vim/swapfiles
 
+# 保存時にsudo権限で無理やり保存 :w!!
+cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
 set t_Co=256
 " yank to clipboard

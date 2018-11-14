@@ -23,6 +23,20 @@ alias cgit='cd /Git'
 alias la='la'
 alias na='cd /Git/Routine/hybrid-app-native'
 alias we='cd /Git/Routine/hybrid-app'
+alias dot='vim ~/dotfiles2'
+alias dots='source ~/dotfiles2'
+alias web='cd ~/recme_ainavi_web_client && nvm use --lts && vim'
+alias we='cd ~/recme_ainavi_web_client && nvm use --lts'
+alias ap='cd ~/aimeets_api'
+alias vap='vim ~/aimeets_api'
+alias biz='cd ~/recme_ainavi_biz_client'
+alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
+alias ys='yarn start'
+alias da='docker-compose up -a'
+alias dd='docker-compose up -d'
+alias db='docker-compose up --build -d'
+alias up=".venv/bin/ansible-playbook -v --ssh-common-args='-F /home/aimeets/.ssh/config' -i inventories/production/hosts playboo
+ks/deploy_aimeets_web_client.yaml --vault-password-file='.prd.vault.password'"
 
 alias vgit='vim /Git'
 
@@ -33,6 +47,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # anaconda
 export PATH="$PYENV_ROOT/versions/anaconda3-5.2.0/bin/:$PATH"
+alias h='cd ~/'
+alias la='la'
+alias vgit='vim /'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -205,5 +222,4 @@ function clippaste() {
 export PATH="$PATH:/Applications/android-sdk/sdk/platform-tools"
 export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
 export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
-export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/tools:$PATH
