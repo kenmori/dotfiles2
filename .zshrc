@@ -6,13 +6,16 @@
 
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/morita/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 echo "here is /Uers/morita/dotfiles2!!"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cypher"
 export TERM=xterm-256color
+
+# direnvを読み込む
+eval "$(direnv hook zsh)"
 
 alias dot='vim ~/dotfiles2'
 alias web='cd ~/recme_ainavi_web_client && nvm use --lts && vim'
@@ -25,11 +28,10 @@ alias ys='yarn start'
 alias da='docker-compose up -a'
 alias dd='docker-compose up -d'
 alias db='docker-compose up --build -d'
-alias up=".venv/bin/ansible-playbook -v --ssh-common-args='-F /home/aimeets/.ssh/config' -i inventories/production/hosts playboo
-ks/deploy_aimeets_web_client.yaml --vault-password-file='.prd.vault.password'"
 alias h='cd ~/'
 alias la='la'
 alias vgit='vim /'
+alias dc='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222'
 
 
 
@@ -111,7 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="/Users/morita/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
