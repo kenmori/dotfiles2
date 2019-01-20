@@ -1,3 +1,5 @@
+echo "reading .vimrc"
+
 set shell=/bin/bash
 set nocompatible
 filetype off
@@ -8,7 +10,7 @@ set swapfile
 "$HOME/.vimrc
 set directory=$HOME/.vim/swapfiles
 
-# 保存時にsudo権限で無理やり保存 :w!!
+"保存時にsudo権限で無理やり保存 :w!!
 cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
 set t_Co=256
@@ -94,37 +96,76 @@ nnoremap ]Q :<C-u>clast<CR>  "最後へ
 autocmd QuickFixCmdPost *grep* cwindow
 
 
+
+"NeoBundle Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/kenjimorita/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('/Users/kenjimorita/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+
+NeoBundle 'VundleVim/Vundle.vim'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'git://git.wincent.com/command-t.git'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ZenCoding.vim'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'open-browser.vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'j5shi/vim-quick-preview'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'maxmellon/vim-jsx-pretty'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'othree/es.next.syntax.vim'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+"
+
+
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'Shougo/neocomplcache'
-Plugin 'Shougo/unite.vim'
-Plugin 'ZenCoding.vim'
-Plugin 'tomasr/molokai'
-Plugin 'Townk/vim-autoclose'
-Plugin 'pangloss/vim-javascript'
-Plugin 'open-browser.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'j5shi/vim-quick-preview'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'othree/yajs.vim'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'othree/es.next.syntax.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'surround.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'glidenote/memolist.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'kannokanno/previm'
-Plugin 'tyru/open-browser.vim'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Firefox'
@@ -287,8 +328,6 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
-
-
 call plug#begin('~/.vim/plugged')
 "prettier
 Plug 'sbdchd/neoformat'
@@ -306,8 +345,8 @@ let g:neoformat_try_formatprg = 1
 
 
 "---vim-flow
-let g:syntastic_javascript_checkers = [‘flow’]
-let g:syntastic_javascript_flow_exe = ‘flow’
+let g:syntastic_javascript_checkers = ['flow']
+let g:syntastic_javascript_flow_exe = 'flow'
 
 
 call plug#end()

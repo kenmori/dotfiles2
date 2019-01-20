@@ -2,15 +2,18 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 
-export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
+. ${HOME}/anaconda3/etc/profile.d/conda.sh
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/moritakenji/.oh-my-zsh
-echo "here is /Uers/moritakenji/dotfiles2!!"
+export ZSH=$HOME/.oh-my-zsh
+echo "here is $HOME/dotfiles2!!"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -35,8 +38,6 @@ alias ys='yarn start'
 alias da='docker-compose up -a'
 alias dd='docker-compose up -d'
 alias db='docker-compose up --build -d'
-alias up=".venv/bin/ansible-playbook -v --ssh-common-args='-F /home/aimeets/.ssh/config' -i inventories/production/hosts playboo
-ks/deploy_aimeets_web_client.yaml --vault-password-file='.prd.vault.password'"
 
 alias vgit='vim /Git'
 
@@ -126,7 +127,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="/Users/moritakenji/.nvm"
+export NVM_DIR="/$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
@@ -220,6 +221,6 @@ function clippaste() {
   fi
 }
 export PATH="$PATH:/Applications/android-sdk/sdk/platform-tools"
-export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
-export PATH="$PATH:/Users/moritakenji/Library/Android/sdk/platform-tools"
+export PATH="$PATH:/$HOME/Library/Android/sdk/platform-tools"
+export PATH="$PATH:/$HOME/Library/Android/sdk/platform-tools"
 export PATH=~/Library/Android/sdk/tools:$PATH
