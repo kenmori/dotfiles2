@@ -2,10 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 
-export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+export ANDOROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
 
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
@@ -24,21 +28,22 @@ alias vdot='vim ~/dotfiles2'
 alias cgit='cd /Git'
 
 alias la='la'
-alias na='cd /Git/Routine/hybrid-app-native'
-alias we='cd /Git/Routine/hybrid-app'
+alias resily="cd ~/Desktop/resily/frontend"
+alias sb="cd ~/git/sandbox"
 alias dot='vim ~/dotfiles2'
-alias dots='source ~/dotfiles2'
+alias rn='cd $HOME/git/sandbox/rn-app'
+alias dots='source ~/dotfiles2/.zshrc'
 alias web='cd ~/recme_ainavi_web_client && nvm use --lts && vim'
 alias we='cd ~/recme_ainavi_web_client && nvm use --lts'
 alias ap='cd ~/aimeets_api'
 alias vap='vim ~/aimeets_api'
+alias re='cd $HOME/git/sandbox/rn-exp'
 alias biz='cd ~/recme_ainavi_biz_client'
 alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
 alias ys='yarn start'
 alias da='docker-compose up -a'
 alias dd='docker-compose up -d'
 alias db='docker-compose up --build -d'
-
 alias vgit='vim /Git'
 
 # pyenv
@@ -127,8 +132,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="/$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="/$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+ export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 
 
