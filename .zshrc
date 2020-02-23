@@ -24,27 +24,18 @@ echo "here is $HOME/dotfiles2!!"
 ZSH_THEME="cypher"
 export TERM=xterm-256color
 
-alias vdot='vim ~/dotfiles2'
-alias cgit='cd /Git'
-
+alias vdot="vim $HONE/dotfiles2"
+alias cg="cd $HONE/git"
 alias la='la'
-alias resily="cd ~/Desktop/resily/frontend"
-alias sb="cd ~/git/sandbox"
-alias dot='vim ~/dotfiles2'
-alias rn='cd $HOME/git/sandbox/rn-app'
-alias dots='source ~/dotfiles2/.zshrc'
-alias web='cd ~/recme_ainavi_web_client && nvm use --lts && vim'
-alias we='cd ~/recme_ainavi_web_client && nvm use --lts'
-alias ap='cd ~/aimeets_api'
-alias vap='vim ~/aimeets_api'
-alias re='cd $HOME/git/sandbox/rn-exp'
-alias biz='cd ~/recme_ainavi_biz_client'
+alias sb="cd $HONE/git/sandbox"
+alias cm='git checkout master && git pull master && git checkout -'
+alias push='git push origin head'
+alias c-='git checkout -'
+alias dot="vim $HONE/dotfiles2"
+# alias source='source ~/dotfiles2/.zshrc'
 alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
-alias ys='yarn start'
-alias da='docker-compose up -a'
-alias dd='docker-compose up -d'
-alias db='docker-compose up --build -d'
-alias vgit='vim /Git'
+alias start='yarn start'
+alias vg="vim $HONE/git"
 
 # pyenv
 eval "$(pyenv init -)"
