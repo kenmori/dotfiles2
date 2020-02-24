@@ -24,18 +24,19 @@ echo "here is $HOME/dotfiles2!!"
 ZSH_THEME="cypher"
 export TERM=xterm-256color
 
-alias vdot="vim $HONE/dotfiles2"
-alias cg="cd $HONE/git"
+alias vdot="vim ~/dotfiles2"
+alias cg="cd ~/git"
+alias shindan="cd ~/git/Shindan"
 alias la='la'
-alias sb="cd $HONE/git/sandbox"
+alias sb="cd ~/git/sandbox"
 alias cm='git checkout master && git pull master && git checkout -'
 alias push='git push origin head'
 alias c-='git checkout -'
-alias dot="vim $HONE/dotfiles2"
+alias dot="vim ~/dotfiles2"
 # alias source='source ~/dotfiles2/.zshrc'
 alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
 alias start='yarn start'
-alias vg="vim $HONE/git"
+alias vg="vim ~/git"
 
 # pyenv
 eval "$(pyenv init -)"
