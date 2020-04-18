@@ -11,6 +11,10 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.in
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 
+etc=/Applications/Docker.app/Contents/Resources/etc
+ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
+
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 . ${HOME}/anaconda3/etc/profile.d/conda.sh
@@ -24,18 +28,19 @@ echo "here is $HOME/dotfiles2!!"
 ZSH_THEME="cypher"
 export TERM=xterm-256color
 
-alias vdot="vim $HONE/dotfiles2"
-alias cg="cd $HONE/git"
+alias vdot="vim ~/dotfiles2"
+alias cg="cd ~/git"
 alias la='la'
-alias sb="cd $HONE/git/sandbox"
+alias shindan="cd ~/git/Shindan/shindan"
+alias sb="cd ~/git/sandbox"
 alias cm='git checkout master && git pull master && git checkout -'
 alias push='git push origin head'
 alias c-='git checkout -'
-alias dot="vim $HONE/dotfiles2"
+alias dot="vim ~/dotfiles2"
 # alias source='source ~/dotfiles2/.zshrc'
 alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
 alias start='yarn start'
-alias vg="vim $HONE/git"
+alias vg="vim ~/git"
 
 # pyenv
 eval "$(pyenv init -)"
