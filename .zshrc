@@ -31,11 +31,11 @@ export TERM=xterm-256color
 alias vdot="vim ~/dotfiles2"
 alias cg="cd ~/git"
 alias la='la'
-alias shindan="cd ~/git/Shindan/shindan"
 alias sb="cd ~/git/sandbox"
 alias cm='git checkout master && git pull master && git checkout -'
 alias push='git push origin head'
 alias c-='git checkout -'
+alias plog="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
 alias dot="vim ~/dotfiles2"
 # alias source='source ~/dotfiles2/.zshrc'
 alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
