@@ -13,6 +13,10 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.in
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 
+etc=/Applications/Docker.app/Contents/Resources/etc
+ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
+
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 . ${HOME}/anaconda3/etc/profile.d/conda.sh
@@ -34,6 +38,7 @@ alias sb="cd ~/git/sandbox"
 alias cm='git checkout master && git pull master && git checkout -'
 alias push='git push origin head'
 alias c-='git checkout -'
+alias plog="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
 alias dot="vim ~/dotfiles2"
 alias source='source ~/dotfiles2/.zshrc'
 alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
