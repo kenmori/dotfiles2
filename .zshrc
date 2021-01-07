@@ -6,6 +6,8 @@ export ANDOROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+export PATH=$HOME/usr/local/bin/cargo/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
@@ -30,6 +32,7 @@ export TERM=xterm-256color
 
 alias vdot="vim ~/dotfiles2"
 alias cg="cd ~/git"
+alias shindan="cd ~/git/Shindan"
 alias la='la'
 alias sb="cd ~/git/sandbox"
 alias cm='git checkout master && git pull master && git checkout -'
@@ -37,7 +40,7 @@ alias push='git push origin head'
 alias c-='git checkout -'
 alias plog="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
 alias dot="vim ~/dotfiles2"
-# alias source='source ~/dotfiles2/.zshrc'
+alias source='source ~/dotfiles2/.zshrc'
 alias lts='source ~/.nvm/nvm.sh & nvm use --lts'
 alias start='yarn start'
 alias vg="vim ~/git"
